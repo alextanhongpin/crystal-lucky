@@ -1,11 +1,11 @@
-#database_name = "crystal_lucky_#{Lucky::Env.name}"
+database_name = ENV["DB_NAME"]? || "crystal_lucky_#{Lucky::Env.name}"
 
 AppDatabase.configure do |settings|
   if Lucky::Env.production?
     settings.credentials = Avram::Credentials.parse(ENV["DATABASE_URL"])
   else
     settings.credentials = Avram::Credentials.parse?(ENV["DATABASE_URL"]?) || Avram::Credentials.new(
-      database: ENV["DB_NAME"],
+      database: database_name,
       hostname: ENV["DB_HOST"]? || "localhost",
       port: ENV["DB_PORT"]?.try(&.to_i) || 5432,
       # Some common usernames are "postgres", "root", or your system username (run 'whoami')

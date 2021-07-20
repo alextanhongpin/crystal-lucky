@@ -2,7 +2,6 @@ class User < BaseModel
   include Carbon::Emailable
   include Authentic::PasswordAuthenticatable
 
-
   # To overwrite default primary key.
   skip_default_columns
 

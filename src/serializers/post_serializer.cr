@@ -4,8 +4,8 @@ class PostSerializer < BaseSerializer
 
   def render
     {
-      id: @post.id,
-      body: @post.body
+      id:   @post.id,
+      body: @post.body,
     }
   end
 

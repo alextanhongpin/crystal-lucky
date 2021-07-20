@@ -7,7 +7,7 @@ abstract class BaseSerializer < Lucky::Serializer
     {
       key => collection.map do |object|
         new(object, *args, **named_args)
-      end
+      end,
     }
   end
 end

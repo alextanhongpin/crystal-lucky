@@ -8,4 +8,10 @@ class PostSerializer < BaseSerializer
       body: @post.body
     }
   end
+
+  # Overwrite the root key for the collection.
+  # When not specified, this will default to `data`
+  def self.collection_key
+    "posts"
+  end
 end

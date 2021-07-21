@@ -1,8 +1,14 @@
-migrate:
-	@lucky db.migrate
+start:
+	@lucky dev
 
 model:
 	@lucky gen.model $(name)
+
+migrate:
+	@lucky db.migrate
+
+rollback:
+	@lucky db.rollback
 
 format:
 	@crystal tool format

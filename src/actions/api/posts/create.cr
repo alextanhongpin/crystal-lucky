@@ -3,6 +3,6 @@ class Api::Posts::Create < ApiAction
 
   post "/api/posts" do
     post = SavePost.create!(params)
-    json PostSerializer.new(post)
+    json ({data: PostSerializer.new(post)}), HTTP::Status::CREATED
   end
 end

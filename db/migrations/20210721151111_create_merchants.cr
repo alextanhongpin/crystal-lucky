@@ -5,11 +5,13 @@ class CreateMerchants::V20210721151111 < Avram::Migrator::Migration::V1
       CREATE TABLE IF NOT EXISTS merchants (
         id uuid NOT NULL DEFAULT gen_random_uuid(),
         name text NOT NULL DEFAULT '',
+        user_id uuid NOT NULL,
         description text NOT NULL DEFAULT '',
         created_at timestamptz NOT NULL DEFAULT current_timestamp,
         updated_at timestamptz NOT NULL DEFAULT current_timestamp,
 
-        PRIMARY KEY (id)
+        PRIMARY KEY (id),
+        FOREIGN KEY (user_id) REFERENCES users(id)
       );
     SQL
   end

@@ -7,6 +7,7 @@ class MerchantSerializer < BaseSerializer
       id:          @merchant.id,
       name:        @merchant.name,
       description: @merchant.description,
+      user:        UserSerializer.new(@merchant.user),
     }
   end
 end

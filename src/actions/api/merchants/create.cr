@@ -1,8 +1,6 @@
 class Api::Merchants::Create < ApiAction
-  include Api::Auth::SkipRequireAuthToken
-
   post "/api/merchants" do
-    merchant = SaveMerchant.create!(params)
+    merchant = SaveMerchant.create!(params, user_id: current_user.id)
     json ({data: MerchantSerializer.new(merchant)}), HTTP::Status::CREATED
   end
 end

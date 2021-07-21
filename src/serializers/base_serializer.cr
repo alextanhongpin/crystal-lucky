@@ -6,7 +6,7 @@ abstract class BaseSerializer < Lucky::Serializer
       "data" => collection.map do |object|
         new(object, *args, **named_args)
       end,
-      "pagination" => pages.nil? || {
+      "pageInfo" => pages.nil? || {
         hasNextPage: !(pages.last_page? || pages.overflowed?),
         page:        pages.page,
         perPage:     pages.per_page,

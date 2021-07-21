@@ -9,7 +9,7 @@ class User < BaseModel
     # Primary key defaults to UUID (configured in
     # models/base_model.cr). When using an int primary
     # key, this has to be overwritten here.
-    primary_key id : Int32
+    primary_key id : Int64
     timestamps
 
     column email : String
